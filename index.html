@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💘😈</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="card">
+            <!-- Toxicity Meter -->
+            <div class="toxicity-section">
+                <div class="toxicity-label">
+                    <span>Manipulation Level:</span>
+                    <span id="toxicity-status">Cute jealousy 🥺</span>
+                </div>
+                <div class="toxicity-bar">
+                    <div class="toxicity-fill" id="toxicity-fill"></div>
+                </div>
+                <div class="attempts-counter">
+                    No attempts: <span id="attempts-count">0</span> 💀
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <h1 class="headline">Would u be my valentine? 💘</h1>
+            
+            <!-- Buttons -->
+            <div class="buttons-container" id="buttons-container">
+                <button class="btn btn-yes" id="btn-yes">Yes 💖</button>
+                <button class="btn btn-no" id="btn-no">No 😶</button>
+            </div>
+
+            <!-- Message Area -->
+            <div class="message-area" id="message-area" aria-live="polite" aria-atomic="true">
+                <p id="toxic-message">Choose wisely... 😈✨</p>
+            </div>
+
+            <!-- Success Message (hidden initially) -->
+            <div class="success-message" id="success-message">
+                <h2>Good choice 😌💘</h2>
+                <p>You're mine now 🫶😈</p>
+                <p class="small-text">No refunds, no returns 💀✨</p>
+            </div>
+
+            <!-- Reset Button -->
+            <button class="reset-btn" id="reset-btn">Reset 🔄</button>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="disclaimer">(this is a joke, please don't actually be toxic 🚩💕)</p>
+    </div>
+
+    <!-- Confetti/Hearts Container -->
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

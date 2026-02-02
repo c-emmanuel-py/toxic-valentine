@@ -1,0 +1,424 @@
+/* ============================================
+   TOXIC VALENTINE - Stylesheet
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffb6c1 50%, #ff69b4 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+    padding: 20px;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Success background shift */
+body.success-mode {
+    animation: successGradient 2s ease forwards;
+}
+
+@keyframes successGradient {
+    to {
+        background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #dc143c 100%);
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 60px rgba(255, 105, 180, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card.shake {
+    animation: cardShake 0.5s ease;
+}
+
+@keyframes cardShake {
+    0%, 100% { transform: translateX(0) rotate(0); }
+    20% { transform: translateX(-10px) rotate(-2deg); }
+    40% { transform: translateX(10px) rotate(2deg); }
+    60% { transform: translateX(-10px) rotate(-1deg); }
+    80% { transform: translateX(10px) rotate(1deg); }
+}
+
+/* ============================================
+   TOXICITY METER
+   ============================================ */
+
+.toxicity-section {
+    margin-bottom: 30px;
+}
+
+.toxicity-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#toxicity-status {
+    font-weight: 700;
+    color: #ff69b4;
+    transition: color 0.3s ease;
+}
+
+.toxicity-bar {
+    width: 100%;
+    height: 12px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toxicity-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffb6c1, #ff69b4, #ff1493, #dc143c);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.attempts-counter {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 600;
+}
+
+/* ============================================
+   HEADLINE
+   ============================================ */
+
+.headline {
+    font-size: 2rem;
+    color: #ff1493;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    line-height: 1.3;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    min-height: 60px;
+    position: relative;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.btn-yes:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+}
+
+.btn-yes.pulse {
+    animation: yesPulse 1s ease infinite;
+}
+
+@keyframes yesPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); box-shadow: 0 10px 35px rgba(255, 20, 147, 0.6); }
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #e0e0e0, #c0c0c0);
+    color: #666;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    z-index: 100;
+    transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.2s ease;
+}
+
+.btn-no.wiggle {
+    animation: noWiggle 0.4s ease;
+}
+
+@keyframes noWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+.btn-no.bounce {
+    animation: noBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes noBounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.btn-no.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   MESSAGE AREA
+   ============================================ */
+
+.message-area {
+    background: linear-gradient(135deg, #fff5f8, #ffe0eb);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ffb6c1;
+}
+
+#toxic-message {
+    font-size: 1.1rem;
+    color: #d63384;
+    font-weight: 600;
+    line-height: 1.5;
+    transition: opacity 0.3s ease;
+}
+
+.message-area.highlight {
+    animation: messageHighlight 0.5s ease;
+}
+
+@keyframes messageHighlight {
+    0%, 100% { border-color: #ffb6c1; }
+    50% { border-color: #ff1493; background: #ffe0eb; }
+}
+
+/* ============================================
+   SUCCESS MESSAGE
+   ============================================ */
+
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.success-message.visible {
+    display: block;
+    animation: successAppear 0.6s ease;
+}
+
+@keyframes successAppear {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.success-message h2 {
+    font-size: 2rem;
+    color: #ff1493;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    font-size: 1.3rem;
+    color: #d63384;
+    margin-bottom: 8px;
+}
+
+.success-message .small-text {
+    font-size: 1rem;
+    color: #888;
+}
+
+/* ============================================
+   RESET BUTTON
+   ============================================ */
+
+.reset-btn {
+    background: transparent;
+    border: 2px solid #ffb6c1;
+    color: #ff69b4;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.reset-btn:hover {
+    background: #ffb6c1;
+    color: white;
+}
+
+/* ============================================
+   DISCLAIMER
+   ============================================ */
+
+.disclaimer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   CONFETTI / HEARTS
+   ============================================ */
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: heartFloat 4s ease-in forwards;
+    opacity: 0;
+}
+
+@keyframes heartFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(720deg) scale(0);
+    }
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 500px) {
+    .card {
+        padding: 25px 20px;
+        margin: 10px;
+    }
+
+    .headline {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    #toxic-message {
+        font-size: 1rem;
+    }
+
+    .toxicity-label {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .success-message h2 {
+        font-size: 1.5rem;
+    }
+
+    .success-message p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .card {
+        padding: 20px;
+    }
+
+    .toxicity-section {
+        margin-bottom: 15px;
+    }
+
+    .headline {
+        margin-bottom: 20px;
+    }
+}
