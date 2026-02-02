@@ -270,6 +270,47 @@ body.success-mode {
     100% { opacity: 1; transform: scale(1); }
 }
 
+/* Circular Photo */
+.photo-container {
+    margin-bottom: 20px;
+}
+
+.success-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff69b4;
+    box-shadow: 
+        0 0 0 5px rgba(255, 105, 180, 0.3),
+        0 10px 30px rgba(255, 20, 147, 0.4);
+    animation: photoAppear 0.8s ease, photoPulse 2s ease-in-out infinite 0.8s;
+}
+
+@keyframes photoAppear {
+    0% { 
+        opacity: 0; 
+        transform: scale(0) rotate(-180deg); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) rotate(0deg); 
+    }
+}
+
+@keyframes photoPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 0 5px rgba(255, 105, 180, 0.3),
+            0 10px 30px rgba(255, 20, 147, 0.4);
+    }
+    50% { 
+        box-shadow: 
+            0 0 0 10px rgba(255, 105, 180, 0.2),
+            0 0 40px rgba(255, 20, 147, 0.6);
+    }
+}
+
 .success-message h2 {
     font-size: 2rem;
     color: #ff1493;

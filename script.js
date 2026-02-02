@@ -7,24 +7,24 @@
 // ============================================
 const toxicMessages = [
     "¿Tú de verdad creíste que ibas a decir que no? 😌💅",
-    "No está disponible. Intenta con 'Yes' 😈💘",
+    "No está disponible. Intenta con 'Yes' 💘",
     "Eso fue un micro rechazo. Tomado personal. 😤",
     "Mira… yo sé lo que tú quieres 🥺👉👈",
     "El botón 'No' está en mantenimiento por tu bien 💀",
     "Tu libertad expiró hace 5 segundos 😶‍🌫️",
     "Dale a Yes y deja el show 😤💗",
-    "Aw cute, you think you have a choice 😈✨",
+    "Aw cute, you think you have a choice ✨",
     "The 'No' button fears commitment just like you 💔",
     "Error 404: Your freedom not found 💀🔒",
     "I didn't ask, I informed 💅😌",
     "Running away? That's our thing now 🏃‍♂️💘",
-    "Every 'No' makes me stronger 😈📈",
+    "Every 'No' makes me stronger 📈✨",
     "This is a safe space... for Yes only 🥺💗",
     "Bestie, the universe wants us together 🌌💘",
     "Your hesitation is lowkey offensive 😤💔",
     "Plot twist: I'm the main character here 💅✨",
     "The red flags are just aesthetic 🚩😍",
-    "Consent? I prefer enthusiasm 😈💘",
+    "Consent? I prefer enthusiasm 💘✨",
     "That's suspicious... that's weird 🤨💀",
     "POV: You're trapped in a situationship 😶‍🌫️",
     "Gaslight, gatekeep, girlboss energy 💅✨",
@@ -32,7 +32,7 @@ const toxicMessages = [
     "No is just Yes with extra steps 😌💘",
     "The audacity... the disrespect... 😤💔",
     "Fine, I'll just manifest it then ✨🔮",
-    "This isn't toxic, it's ✨passionate✨ 😈💗"
+    "This isn't toxic, it's ✨passionate✨ 💗"
 ];
 
 // Track which messages have been used recently
@@ -43,7 +43,7 @@ let usedMessageIndices = [];
 // ============================================
 const toxicityLevels = [
     { max: 25, label: "Cute jealousy 🥺", color: "#ffb6c1" },
-    { max: 60, label: "Manipulation Mode 😈", color: "#ff69b4" },
+    { max: 60, label: "Manipulation Mode 💅", color: "#ff69b4" },
     { max: 85, label: "Gaslight Pro 💀", color: "#ff1493" },
     { max: 100, label: "FINAL BOSS 🚩", color: "#dc143c" }
 ];
@@ -160,7 +160,7 @@ function handleNoPointerDown(e) {
     e.preventDefault();
     moveNoButton();
     incrementAttempts();
-    showToxicMessage("Nice try 😈💀");
+    showToxicMessage("Nice try 💀✨");
 }
 
 function handleNoClick(e) {
@@ -169,7 +169,7 @@ function handleNoClick(e) {
     e.stopPropagation();
     moveNoButton();
     incrementAttempts();
-    showToxicMessage("Nice try 😈💀");
+    showToxicMessage("Nice try 💀✨");
 }
 
 function checkProximityAndEscape(mouseX, mouseY) {
@@ -475,7 +475,7 @@ function resetGame() {
     toxicityFill.style.width = '0%';
     toxicityStatus.textContent = 'Cute jealousy 🥺';
     toxicityStatus.style.color = '#ff69b4';
-    toxicMessage.textContent = 'Choose wisely... 😈✨';
+    toxicMessage.textContent = 'Choose wisely... ✨';
     
     // Show buttons, hide success
     buttonsContainer.style.display = 'flex';
